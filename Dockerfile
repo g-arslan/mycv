@@ -7,7 +7,8 @@ RUN apt-get update                                  \
                           texlive-fonts-recommended \
                           texlive-fonts-extra       \
                           texlive-latex-extra       \
-                          texlive-luatex
+                          texlive-luatex            \
+                          fonts-liberation
 
 CMD lualatex                                        \
     -interaction=nonstopmode                        \
