@@ -12,8 +12,8 @@ jobs:
         run: docker run --mount src=`pwd`/cv,target=/cv,type=bind pdfbuilder
       - uses: actions/upload-artifact@v2
         with:
-          name: resume
-          path: cv/resume.pdf
+          name: Arslan_Gumerov
+          path: cv/Arslan_Gumerov.pdf
           retention-days: 1
 
   PublishPDF:
@@ -24,13 +24,11 @@ jobs:
       - name: Download resume from builder
         uses: actions/download-artifact@v2
         with:
-          name: resume
+          name: Arslan_Gumerov
       - name: Commit report
         run: |
-          git config --global user.name 'Aleksandr Draganov'
-          git config --global user.email 'nomapunk@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git checkout "${GITHUB_REF:11}"
-          git add resume.pdf
+          git add Arslan_Gumerov.pdf
           git commit -m "CI resume"
           git push
